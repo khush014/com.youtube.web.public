@@ -1,0 +1,165 @@
+{
+  "application": {
+    "name": "Windows Media Centre Web Importer",
+    "version": "2.1.0",
+    "build": 9200,
+    "codename": "Horizon"
+  },
+  "native": {
+    "platform": "windows",
+    "architecture": "x86_64",
+    "minOSVersion": "6.1",
+    "targetOSVersion": "10.0"
+  },
+  "integration": {
+    "mediacentre": {
+      "apiVersion": "3.5.2",
+      "enabled": true,
+      "servicePort": 9876,
+      "protocol": "wcf",
+      "supportedModes": [
+        "fullscreen",
+        "windowed",
+        "overlay",
+        "pip"
+      ]
+    },
+    "renderer": {
+      "engine": "chromium",
+      "version": "91.0.4472",
+      "sandbox": true,
+      "hardwareAcceleration": true,
+      "renderingQuality": "high"
+    },
+    "networking": {
+      "httpProxy": null,
+      "httpsProxy": null,
+      "useSystemProxy": true,
+      "connectionTimeout": 10000,
+      "readTimeout": 30000,
+      "maxRedirects": 5,
+      "userAgent": "Mozilla/5.0 (compatible; WindowsMediaCentre/2.1; Web-Importer)"
+    }
+  },
+  "display": {
+    "resolution": {
+      "width": 1920,
+      "height": 1080,
+      "refreshRate": 60
+    },
+    "scaling": {
+      "mode": "adaptive",
+      "factor": 1.0,
+      "overscan": 10
+    },
+    "ui": {
+      "theme": "dark",
+      "accentColor": "0x64b4ff",
+      "fontSize": 14,
+      "fontFamily": "Segoe UI"
+    }
+  },
+  "performance": {
+    "caching": {
+      "enabled": true,
+      "directory": "%APPDATA%\\MediaCentre\\cache",
+      "maxSize": 2147483648,
+      "ttl": 3600
+    },
+    "memoryLimit": 1073741824,
+    "cpuThrottle": false,
+    "gpuAcceleration": true
+  },
+  "security": {
+    "ssl": {
+      "enabled": true,
+      "verifyCertificates": true,
+      "allowInsecureContent": false,
+      "certificatePath": "%WINDIR%\\System32\\drivers\\etc\\certs"
+    },
+    "sandbox": {
+      "enabled": true,
+      "level": 4,
+      "restrictedApis": [
+        "file_system",
+        "native_code",
+        "plugins"
+      ]
+    },
+    "contentSecurity": {
+      "policy": "strict",
+      "blockMixedContent": true,
+      "allowInlineScripts": false
+    }
+  },
+  "features": {
+    "webImport": {
+      "enabled": true,
+      "maxConcurrentImports": 4,
+      "supportedProtocols": [
+        "http",
+        "https"
+      ],
+      "allowedDomains": [
+        "youtube.com",
+        "youtube-nocookie.com",
+        "*.youtube.com"
+      ]
+    },
+    "remoteControl": {
+      "enabled": true,
+      "protocols": [
+        "ir",
+        "bluetooth",
+        "usb"
+      ],
+      "keyBindings": {
+        "up": "ArrowUp",
+        "down": "ArrowDown",
+        "left": "ArrowLeft",
+        "right": "ArrowRight",
+        "select": "Enter",
+        "back": "Escape",
+        "menu": "m"
+      }
+    },
+    "autoRefresh": {
+      "enabled": true,
+      "minInterval": 5,
+      "maxInterval": 3600,
+      "defaultInterval": 30
+    },
+    "adaptiveStreaming": {
+      "enabled": true,
+      "detectBandwidth": true,
+      "minQuality": "480p",
+      "maxQuality": "4k",
+      "fallbackQuality": "720p"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "directory": "%APPDATA%\\MediaCentre\\logs",
+    "maxFileSize": 10485760,
+    "maxBackups": 10,
+    "format": "json"
+  },
+  "notifications": {
+    "enabled": true,
+    "position": "bottom-right",
+    "duration": 5000,
+    "sound": true
+  },
+  "startup": {
+    "autoLaunch": true,
+    "minimizedToTray": false,
+    "lastImport": null,
+    "restoreSession": true
+  },
+  "updates": {
+    "checkForUpdates": true,
+    "autoInstall": false,
+    "channel": "stable",
+    "checkInterval": 86400
+  }
+}
